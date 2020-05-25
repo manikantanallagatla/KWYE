@@ -21,6 +21,7 @@ import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 
 import sendemail.sendSMS;
+import sendemail.JWT;
 
 public class SendEmail {
 
@@ -62,6 +63,8 @@ public class SendEmail {
 	}
 	
 	public static void main(String[] args) {
+		//send email
+		
 //		System.out.println("SimpleEmail Start");
 //		
 //		final String fromEmail = "fill"; //requires valid gmail id
@@ -86,6 +89,11 @@ public class SendEmail {
 //	    
 //	    sendEmail(session, toEmail, "SimpleEmail Testing Subject", "SimpleEmail Testing Body");
 	
-		sendSMS.sendSms();
+		//send sms
+//		sendSMS.sendSms();
+		
+		//JWT
+		String token = JWT.createJWT("id", "KWYE", "ma$1234$lol$llk", 0);
+		JWT.parseJWT(token);
 	}
 }
