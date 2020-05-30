@@ -17,10 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.iitr.kwue.entities.Student;
 import com.iitr.kwue.entities.User;
 import com.iitr.kwue.repository.UserRepository;
-import com.iitr.kwue.service.impl.StudentServiceImpl;
 import com.iitr.kwue.service.impl.UserServiceImpl;
 
 @RestController

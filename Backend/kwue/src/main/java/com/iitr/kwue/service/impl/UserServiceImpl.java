@@ -3,11 +3,8 @@ package com.iitr.kwue.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.iitr.kwue.entities.Student;
 import com.iitr.kwue.entities.User;
-import com.iitr.kwue.repository.StudentRepository;
 import com.iitr.kwue.repository.UserRepository;
-import com.iitr.kwue.service.StudentService;
 import com.iitr.kwue.service.UserService;
 
 @Service
