@@ -1,6 +1,5 @@
 package com.iitr.kwue.repository;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.iitr.kwue.entities.User;

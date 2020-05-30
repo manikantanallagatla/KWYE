@@ -26,4 +26,8 @@ public class User {
 	  public String email;
 	  public long age;
 	  public String gender;
+	public Object getError() {
+		// TODO Auto-generated method stub
+		return phone_no;
+	}
 }
