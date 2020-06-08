@@ -51,7 +51,7 @@ public class Utilities {
 	    	String userJsonString = new com.fasterxml.jackson.databind.ObjectMapper().writeValueAsString(u);
 
 		    //Let's set the JWT Claims
-		    JwtBuilder builder = Jwts.builder().setId(u.getPhone_no())
+		    JwtBuilder builder = Jwts.builder().setId(u.phone_no)
 		                                .setIssuedAt(now)
 		                                .setSubject(userJsonString)
 		                                .setIssuer(ISSUER)
