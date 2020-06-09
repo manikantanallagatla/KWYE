@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.iitr.kwue.entities.User;
 import com.iitr.kwue.repository.UserRepository;
 import com.iitr.kwue.service.impl.UserServiceImpl;
+import com.sun.istack.FinalArrayList;
 
 @RestController
 @RequestMapping("/users")
@@ -33,16 +34,14 @@ public class UserController {
 		return u;
 	}
 	
-	//to-be-implemented
 	@GetMapping("/generateOtp")
-	public long getOtp(String apiKey,String phoneNo) {
-		return userServiceImpl.generateOtp(apiKey, phoneNo);
+	public void getOtp(final String phoneNo) {
+		userServiceImpl.generateOtp(phoneNo);
 	}
 	
-	//to-be-implemented
 	@GetMapping("/verifyotp")
-	public Boolean verifyOtp(String apiKey,String phoneNo,Long otp) {
-		return userServiceImpl.verifyOtp(apiKey, phoneNo,otp);
+	public Boolean verifyOtp(final String phoneNo, final String otp) {
+		return userServiceImpl.verifyOtp(phoneNo,otp);
 	}
 	
 	@PutMapping("/updateuser")
