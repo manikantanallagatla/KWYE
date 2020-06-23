@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
 		final OneTimePassword oneTimePassword = new OneTimePassword();
 		oneTimePassword.otpNumber = otpNumber;
 		oneTimePassword.phone_no = phoneNo;
-		oneTimePassword.timeStamp = ZonedDateTime.now(ZoneId.of(Constants.UTC_ZONE_ID)).toInstant().getEpochSecond();
+		oneTimePassword.timeStamp = ZonedDateTime.now(ZoneId.of(Constants.UTC_ZONE_ID)).toInstant().toEpochMilli();
 		
 		try {
 			oneTimePasswordRepository.save(oneTimePassword);
@@ -49,6 +49,17 @@ public class UserServiceImpl implements UserService {
 	public Boolean verifyOtp(final String phoneNo, final String otpNumber) {
 		final Optional<OneTimePassword> oneTimePassword = oneTimePasswordRepository.findById(phoneNo);
 		return OneTimePasswordUtil.isValidOTP(oneTimePassword.get(), otpNumber);
+	}
+	
+	public Boolean invalidateOTP(final String phoneNo) {
+		try {
+			oneTimePasswordRepository.deleteById(phoneNo);
+		} catch (final Exception e) {
+			// TODO: handle exception
+			return Boolean.FALSE;
+		}
+		return Boolean.TRUE;
+		
 	}
 
 	public boolean verifyToken(String apiKey, String phoneNo) {

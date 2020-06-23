@@ -51,6 +51,13 @@ public class UserController {
 		 return user;
 	}
 	
+	@PutMapping("/invalidateOTP")
+	public  Boolean invalidateOTP(final String phoneNo) {
+		return userServiceImpl.invalidateOTP(phoneNo);
+	}
+	
+	
+	
 	//to-be-implemented
 	@GetMapping("/verifytoken")
 	public boolean verifyToken(String apiKey,String phoneNo) {
