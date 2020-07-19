@@ -4,6 +4,8 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Random;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,8 @@ import com.iitr.kwue.repository.OneTimePasswordRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
+	
+	private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
 	@Autowired
 	private UserRepository userRepository;
@@ -32,6 +36,7 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	public void generateOtp(final String phoneNo) {
+		logger.info("Phone number 1 : " + phoneNo);
 		final Random random = new Random();
 		final String otpNumber = String.format("%06d", random.nextInt(1000000));
 		final OneTimePassword oneTimePassword = new OneTimePassword();

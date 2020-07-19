@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import com.iitr.kwue.Constants.Constants.TableConstants.OneTimePasswordConstants;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,13 +22,13 @@ import lombok.Builder;
 @Document()
 public class OneTimePassword {
 	@Id
-	@Field(name="phone_no")
+	@Field(name=OneTimePasswordConstants.PHONE_NO)
 	public String phone_no;
 	
-	@Field(name = "otpNumber")
+	@Field(name = OneTimePasswordConstants.OTP_NUMBER)
 	public String otpNumber;
 	
-	@Field(name = "timeStamp")
+	@Field(name = OneTimePasswordConstants.TIME_STAMP)
 	public long timeStamp;
 	
 }
